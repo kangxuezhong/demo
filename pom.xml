@@ -37,11 +37,27 @@
 		</dependency>
 	</dependencies>
 	<build>
-  <plugins>
-  	<plugin>
-  		<groupId>org.springframework.boot</groupId>
- 		<artifactId>spring-boot-maven-plugin</artifactId>
-  	</plugin>
-  </plugins>
- </build>
+		<resources>
+			<resource>
+				<directory>${project.basedir}/src/main/resources</directory>
+				<filtering>true</filtering>
+				<excludes>
+					<exclude>public/static/**/font*/**</exclude>
+				</excludes>
+			</resource>
+			<resource>
+				<directory>${project.basedir}/src/main/resources</directory>
+				<filtering>false</filtering>
+				<includes>
+					<include>public/static/**/font*/**</include>
+				</includes>
+			</resource>
+		</resources>
+		<plugins>
+			<plugin>
+				<groupId>org.springframework.boot</groupId>
+				<artifactId>spring-boot-maven-plugin</artifactId>
+			</plugin>
+		</plugins>
+	</build>
 </project>
